@@ -123,6 +123,7 @@ test:
         background: true
 
     - fb-adb shell am start -n $CLASS_P/$START_INTENT_P
+    - sleep 10
 
     - died_count=`cat $CIRCLE_ARTIFACTS/adb_out.txt|grep 'Process. '"$CLASS_P"', PID.'|wc -l|tr -d ' '` ; if [ $died_count -gt 0 ]; then echo "app crashed"; exit 1; fi
 
